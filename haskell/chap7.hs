@@ -35,3 +35,12 @@ baseCircle r = Circle (Point 0 0) r
 
 baseRectangle :: Float -> Float -> Shape
 baseRectangle w h = Rectangle (Point 0 0) (Point w h)
+
+data Person = Person {
+    firstName :: String,
+    lastName :: String,
+    age :: Int,
+    height :: Float,
+    phoneNumber :: String,
+    flavor :: String
+} deriving (Show)
