@@ -1,0 +1,32 @@
+     1                                 %line 1+1 sample2.asm
+     2                                 [segment .data]
+     3 00000000 04000000               a dd 4
+     4 00000004 CDCC8C40               b dd 4.4
+     5 00000008 00000000<rept>         c times 10 dd 0
+     6 00000030 01000200               d dw 1, 2
+     7 00000034 FB                     e db 0xfb
+     8 00000035 68656C6C6F20776F72-    f db "hello world", 0
+     9 00000035 6C6400             
+    10 00000041 E9030000               x dd 1001
+    11 00000045 09000000               y dd 1001
+    12                                 
+    13                                 [segment .bss]
+    14 00000000 <gap>                  g resd 1
+    15 00000004 <gap>                  h resd 10
+    16 0000002C <gap>                  i resd 100
+    17                                 
+    18                                 [segment .text]
+    19                                 [global main]
+    20                                 main:
+    21 00000000 55                      push rbp
+    22 00000001 48B8F0DEBC9A785634-     mov rax, 0x123456789abcdef0
+    23 00000001 12                 
+    24 0000000B B864000000              mov eax, 100
+    25 00000010 B804000000              mov eax, 100
+    26 00000015 48C7C50A000000          mov rbp, 10
+    27 0000001C 4889E5                  mov rbp, rsp
+    28 0000001F 4883EC10                sub rsp, 16
+    29                                 
+    30 00000023 31C0                    xor eax, eax
+    31 00000025 C9                      leave
+    32 00000026 C3                      ret

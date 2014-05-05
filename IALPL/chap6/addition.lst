@@ -1,0 +1,20 @@
+     1                                 %line 1+1 /home/warabanshi/development/sandbox/IALPL/chap6/addition.s
+     2                                 [segment .data]
+     3 00000000 A100000000000000       a dq 161
+     4 00000008 3601000000000000       b dq 310
+     5 00000010 0000000000000000       sum dq 0
+     6                                 [segment .text]
+     7                                 [global main]
+     8                                 main:
+     9 00000000 55                      push rbp
+    10 00000001 4889E5                  mov rbp, rsp
+    11 00000004 4883EC10                sub rsp, 16
+    12 00000008 48C7C009000000          mov rax, 9
+    13 0000000F 48010425[00000000]      add [a], rax
+    14 00000017 488B0425[00000000]      mov rax, [b]
+    15 0000001F 4883C00A                add rax, 10
+    16 00000023 48030425[00000000]      add rax, [a]
+    17 0000002B 48890425[00000000]      mov [sum], rax
+    18 00000033 48C7C000000000          mov rax, 0
+    19 0000003A C9                      leave
+    20 0000003B C3                      ret
